@@ -14,5 +14,16 @@ public abstract class UtilityProvider extends Cell {
         return capacity;
     }
 
-
+    @Override
+    public boolean isConnectable() {
+        return true;
+    }
+    @Override
+    public boolean isZone(){
+        return false;
+    }
+    @Override
+    public boolean isEmpty(){
+        return false;
+    }
 }
