@@ -36,5 +36,67 @@ public abstract class Zone extends Cell {
         internetDemand=1;
     }
 
+    public int getLevel() {return level;}
+
+    public int getOutput() {return output;}
+
+    public int getElectricityDemand() {return electricityDemand;}
+
+    public int getWaterDemand() {return waterDemand;}
+
+    public int getInternetDemand() {return internetDemand;}
+
+
+    // methods for adding received values
+    public void receiveElectricity(int amount){
+        receivedElectricity += amount;
+    }
+
+    public void receiveWater(int amount){
+        receivedWater += amount;
+    }
+
+    public void receiveInternet(int amount){
+        receivedInternet += amount;
+    }
+
+    public void receivePopulation(int amount){
+        receivedPopulation += amount;
+    }
+
+    public void receiveGoods(int amount){
+        receivedGoods += amount;
+    }
+
+    public void receiveLifestyle(int amount){
+        receivedLifestyle += amount;
+    }
+
+
+
+    // methods for setting service status
+    public void setSecurity(boolean value){
+        hasSecurity=value;
+    }
+
+    public void setHealth(boolean value){
+        hasHealth=value;
+    }
+
+    public void setEducation(boolean value){
+        hasEducation=value;
+    }
+
+
+    @Override
+    public boolean isConnectable(){return true;}
+
+    @Override
+    public boolean isZone(){return true;}
+
+    @Override
+    public boolean isEmpty(){return false;}
+
+    public abstract void updateZone();
 
 }
