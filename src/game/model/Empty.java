@@ -10,12 +10,12 @@ public class Empty extends Cell {
     }
     @Override
     public boolean isZone(){
-        return true;
+        return false;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return true;
     }
 }
 
