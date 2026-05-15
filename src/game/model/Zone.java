@@ -97,6 +97,15 @@ public abstract class Zone extends Cell {
     @Override
     public boolean isEmpty(){return false;}
 
+    //Updates the utility demands based on the current level
+    //As the zone upgrades to higher levels,its resource consumption increases
+    public void updateUtilityDemands(){
+
+        this.electricityDemand = 1 + (this.level * 2);
+        this.waterDemand = 1 + (this.level *2 );
+        this.internetDemand = 1 + (this.level * 1);
+    }
+
     public abstract void updateZone();
 
 }
