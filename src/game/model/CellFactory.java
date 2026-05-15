@@ -10,13 +10,37 @@ public class CellFactory {
             case 'E':
                 return new Empty(row,col);
 
-          //More will be added in later stages
+            case 'C':
+                return new Commercial(row, col);
+
+            case 'I':
+                return new Industrial(row, col);
+
+            case 'P':
+                return new PowerPlant(row, col);
+
+            case 'W':
+                return new WaterPumpingStation(row, col);
+
+            case 'T':
+                return new InternetHub(row, col);
+
+            case 'F':
+                return new PoliceStation(row, col);
+
+            case 'D':
+                return new Hospital(row, col);
+
+            case 'S':
+                return new School(row, col);
+
+                // 'H' will be added here the Housing class is created and pushed.
 
 
-
-
-            default:
-                return null;
+              //If an unknown character is encountered in the map
+             // it returns an empty cell to prevent the program from crashing
+             default:
+                return new Empty(row, col);
 
         }
     }
