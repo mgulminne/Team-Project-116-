@@ -34,7 +34,9 @@ public class CellFactory {
             case 'S':
                 return new School(row, col);
 
-                // 'H' will be added here the Housing class is created and pushed.
+            case  'H':
+                return new Housing(row, col);
+
 
 
               //If an unknown character is encountered in the map
