@@ -34,6 +34,10 @@ public class MapReader {
         for (int i = 0; i < size; i++) {
             String line = lines.get(i);
             for (int j = 0; j < size; j++) {
+                char c = line.charAt(j);
+                if ("HICPWTFDSRE".indexOf(c) == -1) {
+                    throw new InvalidMapException();
+                }
                 grid[i][j] = String.valueOf(line.charAt(j));
             }
         }
