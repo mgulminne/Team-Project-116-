@@ -111,6 +111,17 @@ public abstract class Zone extends Cell {
         this.internetDemand =newDemand;
     }
 
+    //Resets all received utilities and resources back to 0
+    //This method must be called at the start of each tick to prevent resource pile up
+    public void resetReceivedResources() {
+        this.receivedElectricity = 0;
+        this.receivedWater = 0;
+        this.receivedInternet = 0;
+        this.receivedPopulation = 0;
+        this.receivedGoods = 0;
+        this.receivedLifestyle = 0;
+    }
+
     public abstract void updateZone();
 
 }
