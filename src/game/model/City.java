@@ -1,5 +1,7 @@
 package game.model;
 
+import java.util.ArrayList;
+
 public class City {
     private Cell[][] grid;   //city map
 
@@ -25,8 +27,50 @@ public class City {
     }
     // returns column count
     public int getColCount(){
-        return  grid[0].length;
+        return grid[0].length;
+    }
+
+    //returns all zones in the city
+    public ArrayList<Zone> getAllZones(){
+        ArrayList<Zone> zones = new ArrayList<>();
+
+            for (int col=0 ; col<grid[row].length ; col++){
+
+                if (grid[row][col].isZone()){
+                    zones.add((Zone) grid[row][col]);
+                }
+            }
+        }
+        return zones;
+    }
+
+    //returns all providers in the city
+    public ArrayList<Cell> getProviders(){
+        ArrayList<Cell> providers = new ArrayList<>();
+
+        for (int row=0 ; row<grid.length ; row++ ){
+
+            for (int col=0 ; col<grid[row].length ; col++){
+
+                if (grid[row][col] instanceof UtilityProvider || grid[row][col] instanceof ServiceProvider) {
+                    providers.add(grid[row][col]);
+                }
+            }
+        }
+        return providers;
     }
 
 
+    //returns all cells in the city
+    public ArrayList<Cell> getAllCells(){
+        ArrayList<Cell> cells = new ArrayList<>();
+
+        for (int row=0 ; row<grid.length ; row++ ){
+
+            for (int col=0 ; col<grid[row].length ; col++){
+                cells.add(grid[row][col]);
+            }
+        }
+        return cells;
+    }
 }
