@@ -34,6 +34,7 @@ public class City {
     public ArrayList<Zone> getAllZones(){
         ArrayList<Zone> zones = new ArrayList<>();
 
+        for (int row=0 ; row<grid.length ; row++){
             for (int col=0 ; col<grid[row].length ; col++){
 
                 if (grid[row][col].isZone()){
