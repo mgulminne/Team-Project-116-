@@ -120,6 +120,9 @@ public abstract class Zone extends Cell {
         this.receivedPopulation = 0;
         this.receivedGoods = 0;
         this.receivedLifestyle = 0;
+        this.hasSecurity = false;
+        this.hasHealth = false;
+        this.hasEducation = false;
     }
 
     public abstract void updateZone();
