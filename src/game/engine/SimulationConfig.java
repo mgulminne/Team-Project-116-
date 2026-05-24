@@ -6,15 +6,15 @@ public class SimulationConfig {
     public static final int MIN_DEMAND = 1;
 
 
-    public static final String TYPE_HOUSING = "H";
-    public static final String TYPE_COMMERCIAL = "C";
-    public static final String TYPE_INDUSTRIAL = "I";
-    public static final String TYPE_PARK = "P";
-    public static final String TYPE_WATER = "W";
-    public static final String TYPE_TREE = "T";
-    public static final String TYPE_FOREST = "F";
-    public static final String TYPE_DECORATION = "D";
-    public static final String TYPE_SERVICE = "S";
-    public static final String TYPE_ROAD = "R";
-    public static final String TYPE_EMPTY = "E";
+    public static final char TYPE_HOUSING = 'H';
+    public static final char TYPE_COMMERCIAL = 'C';
+    public static final char TYPE_INDUSTRIAL = 'I';
+    public static final char TYPE_POWER_PLANT = 'P';
+    public static final char TYPE_WATER_STATION = 'W';
+    public static final char TYPE_INTERNET_HUB = 'T';
+    public static final char TYPE_POLICE_STATION = 'F';
+    public static final char TYPE_HOSPITAL = 'D';
+    public static final char TYPE_SCHOOL = 'S';
+    public static final char TYPE_ROAD = 'R';
+    public static final char TYPE_EMPTY = 'E';
 }
