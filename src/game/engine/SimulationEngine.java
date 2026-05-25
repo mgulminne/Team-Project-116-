@@ -85,7 +85,23 @@ public class SimulationEngine {
         }
     }
 
-    private void distributeUtilities(){}
+    private void distributeUtilities(){
+        UtilityBfs utilityBfs = new UtilityBfs();
+        
+        //check all providers
+        for(Cell provider: city.getProviders()){
+
+            if (provider instanceof PowerPlant){
+                utilityBfs.runBfs(city,provider,"electricity");
+
+            } else if (provider instanceof WaterPumpingStation) {
+                utilityBfs.runBfs(city,provider,"water");
+
+            } else if (provider instanceof InternetHub) {
+                utilityBfs.runBfs(city,provider,"internet");
+            }
+        }
+    }
 
     private void resetTickData(){
         for(Zone zone : city.getAllZones()) {
