@@ -8,9 +8,62 @@ import game.model.Commercial;
 import java.util.ArrayList;
 
 public class SimulationEngine {
+    private City city;
+    private int tickCount; //number of simulation ticks
 
-    public SimulationEngine() {
+    public SimulationEngine(City city, int tickCount) {
+        this.city=city;
+        this.tickCount=tickCount;
     }
+
+    public void startSimulation(){
+        for(int tick=1 ; tick<=tickCount ; tick++){
+            resetTickData();
+
+            distributeServices();
+
+            distributeUtilities();
+
+            // resource distribution start after first tick
+            if(tick > 1){
+                distributeResources(city);
+            }
+
+            updateZones();
+
+            collectCurrentProduction();
+
+            city.prepareNextTick();
+        }
+    }
+
+    private void collectCurrentProduction(){
+        //collect productions from zones
+        for(Zone zone : city.getAllZones()){
+
+            if(zone instanceof Housing){
+                city.addCurrentPopulation(zone.getOutput());
+
+            } else if (zone instanceof Industrial) {
+                city.addCurrentGoods(zone.getOutput());
+
+            }else if(zone instanceof Commercial){
+                city.addCurrentLifestyle(zone.getOutput());
+            }
+        }
+    }
+
+    private void updateZones(){}
+
+    private void distributeServices(){}
+
+    private void distributeUtilities(){}
+
+    private void resetTickData(){}
+
+
+
+
 
     //distribution of resources
     public void distributeResources(City city){
@@ -44,5 +97,4 @@ public class SimulationEngine {
             }
         }
     }
-
 }
