@@ -74,4 +74,16 @@ public class City {
         }
         return cells;
     }
+
+    //prints the current state of the city grid to the console
+    public void printCityMap() {
+        for (int row=0 ; row < grid.length; row++) {
+
+            for (int col = 0; col < grid [row].length; col++) {
+
+                System.out.println(grid [row][col].getSymbol() + " ");
+            }
+            System.out.println();
+        }
+    }
 }
