@@ -1,10 +1,6 @@
 package game.engine;
-import game.model.City;
-import game.model.Zone;
-import game.model.Cell;
-import game.model.Housing;
-import game.model.Industrial;
-import game.model.Commercial;
+import game.model.*;
+
 import java.util.ArrayList;
 
 public class SimulationEngine {
@@ -59,7 +55,35 @@ public class SimulationEngine {
         }
     }
 
-    private void distributeServices(){}
+
+
+    private void distributeServices(){
+
+        // check all providers
+        for (Cell provider : city.getProviders()) {
+
+            // check service providers
+            if (provider instanceof ServiceProvider) {
+                ServiceProvider service = (ServiceProvider) provider;
+
+                for (Zone zone : city.getAllZones()) {
+
+                    // check service radius
+                    if (zone.isWithinServiceRadius(service, service.getRadius())) {
+
+                        if (service instanceof  PoliceStation) {
+                            zone.setSecurity(true);
+                        } else if (service instanceof Hospital ) {
+                            zone.setHealth(true);
+                        } else if (service instanceof  School) {
+                            zone.setEducation(true);
+
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     private void distributeUtilities(){}
 
