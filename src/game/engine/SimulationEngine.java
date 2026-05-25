@@ -9,10 +9,6 @@ import java.util.ArrayList;
 
 public class SimulationEngine {
 
-    private int previousPopulation = 0;
-    private int previousGoods = 0;
-    private int previousLifestyle = 0;
-
     public SimulationEngine() {
     }
 
@@ -31,9 +27,9 @@ public class SimulationEngine {
         }
 
         int popReceiversCount = industrialCount + commercialCount;
-        int popPerZone = (popReceiversCount>0) ? (previousPopulation / popReceiversCount) : 0;
-        int goodsPerZone = (commercialCount>0) ? (previousGoods / commercialCount) : 0;
-        int lifestylePerZone = (housingCount>0) ? (previousLifestyle / housingCount) : 0;
+        int popPerZone = (popReceiversCount>0) ? (city.getPreviousPopulation() / popReceiversCount) : 0;
+        int goodsPerZone = (commercialCount>0) ? (city.getPreviousGoods() / commercialCount) : 0;
+        int lifestylePerZone = (housingCount>0) ? (city.getPreviousLifestyle() / housingCount) : 0;
 
         for(Zone zone : allZones){
             if(zone instanceof Housing){
@@ -48,31 +44,5 @@ public class SimulationEngine {
             }
         }
     }
-
-    // getters and setters
-    public int getPreviousGoods() {
-        return previousGoods;
-    }
-
-    public void setPreviousGoods(int previousGoods) {
-        this.previousGoods = previousGoods;
-    }
-
-    public int getPreviousLifestyle() {
-        return previousLifestyle;
-    }
-
-    public void setPreviousLifestyle(int previousLifestyle) {
-        this.previousLifestyle = previousLifestyle;
-    }
-
-    public int getPreviousPopulation() {
-        return previousPopulation;
-    }
-
-    public void setPreviousPopulation(int previousPopulation) {
-        this.previousPopulation = previousPopulation;
-    }
-
 
 }
