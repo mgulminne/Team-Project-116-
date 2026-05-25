@@ -20,6 +20,13 @@ public class Housing extends Zone {
         // level update rules
         if ( m == 0) {
             level = 0;
+            output = 0;
+
+            electricityDemand = 1;
+            waterDemand = 1;
+            internetDemand = 1;
+
+            return;
 
         }
         else {

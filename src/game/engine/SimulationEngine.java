@@ -53,13 +53,21 @@ public class SimulationEngine {
         }
     }
 
-    private void updateZones(){}
+    private void updateZones(){
+        for(Zone zone : city.getAllZones()) {
+            zone.updateZone();
+        }
+    }
 
     private void distributeServices(){}
 
     private void distributeUtilities(){}
 
-    private void resetTickData(){}
+    private void resetTickData(){
+        for(Zone zone : city.getAllZones()) {
+            zone.resetReceivedResources();
+        }
+    }
 
 
 
