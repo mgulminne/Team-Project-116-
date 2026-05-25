@@ -1,5 +1,7 @@
 package game.model;
 
+import game.engine.SimulationConfig;
+
 public abstract class Zone extends Cell {
     protected int level;   //zone level (0-3)
 
@@ -31,9 +33,9 @@ public abstract class Zone extends Cell {
         level=0;   //starting level
 
         //starting utility demands
-        electricityDemand=1;
-        waterDemand=1;
-        internetDemand=1;
+        electricityDemand= SimulationConfig.MIN_DEMAND;
+        waterDemand= SimulationConfig.MIN_DEMAND;
+        internetDemand= SimulationConfig.MIN_DEMAND;
     }
 
     public int getLevel() {return level;}
@@ -103,8 +105,8 @@ public abstract class Zone extends Cell {
 
         int newDemand = this.output;
 
-         if(newDemand <1){
-            newDemand = 1;
+         if(newDemand < SimulationConfig.MIN_DEMAND){
+            newDemand = SimulationConfig.MIN_DEMAND;
         }
         this.electricityDemand = newDemand;
         this.waterDemand = newDemand;

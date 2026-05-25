@@ -1,8 +1,10 @@
 package game.model;
 
+import game.engine.SimulationConfig;
+
 public abstract class UtilityProvider extends Cell {
 
-    protected final int capacity = 100; //fixed production capacity
+    protected final int capacity = SimulationConfig.UTILITY_CAPACITY; //fixed production capacity
 
     //Calling cell class constructor
     public UtilityProvider(int row,int col,char symbol){
