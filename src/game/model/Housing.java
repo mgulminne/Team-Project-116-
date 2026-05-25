@@ -68,8 +68,19 @@ public class Housing extends Zone {
              else if (level == 3) {
                  output = (2 * m) + receivedLifestyle;
              }
+
+             if ( output > 1) {
+                 electricityDemand = output;
+                 waterDemand = output;
+                 internetDemand = output;
+             }
+
+             else {
+                 electricityDemand = 1;
+                 waterDemand = 1;
+                 internetDemand = 1;
+             }
         }
-        updateUtilityDemands();
 
     }
 
