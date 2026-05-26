@@ -17,4 +17,20 @@ public class SimulationConfig {
     public static final char TYPE_SCHOOL = 'S';
     public static final char TYPE_ROAD = 'R';
     public static final char TYPE_EMPTY = 'E';
+
+
+    public static final String UTILITY_ELECTRICITY ="ELECTRICITY";
+    public static final String UTILITY_WATER ="WATER";
+    public static final String UTILITY_INTERNET ="INTERNET";
+
+
+    public static final String SERVICE_SECURITY ="SECURITY";
+    public static final String SERVICE_HEALTH ="HEALTH";
+    public static final String SERVICE_EDUCATION ="EDUCATION";
+
+
+    public static final String RESOURCE_POPULATION ="POPULATION";
+    public static final String RESOURCE_GOODS ="GOODS";
+    public static final String RESOURCE_LIFESTYLE ="LIFESTYLE";
+
 }
