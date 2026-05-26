@@ -5,7 +5,27 @@ import java.util.ArrayList;
 public class City {
     private Cell[][] grid;   //city map
 
-    public City(Cell[][] grid) {this.grid = grid;}
+    //previous tick production
+    private int previousPopulation;
+    private int previousGoods;
+    private int previousLifestyle;
+    //current tick production
+    private int currentPopulation;
+    private int currentGoods;
+    private int currentLifestyle;
+
+
+    public City(Cell[][] grid) {
+        this.grid = grid;
+
+        previousPopulation = 0;
+        previousGoods = 0;
+        previousLifestyle = 0;
+
+        currentPopulation = 0;
+        currentGoods = 0;
+        currentLifestyle = 0;
+    }
     public Cell[][] getGrid() {return grid;}
 
     //checks if the position is inside the map
@@ -73,5 +93,45 @@ public class City {
             }
         }
         return cells;
+    }
+
+    //prints the current state of the city grid to the console
+    public void printCityMap() {
+        for (int row=0 ; row < grid.length; row++) {
+
+            for (int col = 0; col < grid [row].length; col++) {
+
+                System.out.println(grid [row][col].getSymbol() + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public int getPreviousPopulation(){ return previousPopulation; }
+    public int getPreviousGoods(){ return previousGoods; }
+    public int getPreviousLifestyle(){ return previousLifestyle; }
+
+    // add current lifestyle-goods-population production
+    public void addCurrentPopulation(int amount){
+        currentPopulation+=amount;
+    }
+
+    public void addCurrentGoods(int amount){
+        currentGoods+=amount;
+    }
+
+    public void addCurrentLifestyle(int amount){
+        currentLifestyle+=amount;
+    }
+
+    // prepare value for next tick
+    public void prepareNextTick(){
+        previousPopulation=currentPopulation;
+        previousGoods=currentGoods;
+        previousLifestyle=currentLifestyle;
+
+        currentPopulation=0;
+        currentGoods=0;
+        currentLifestyle=0;
     }
 }
