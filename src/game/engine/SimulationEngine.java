@@ -30,6 +30,7 @@ public class SimulationEngine {
             collectCurrentProduction();
 
             city.prepareNextTick();
+
         }
     }
 
@@ -145,4 +146,31 @@ public class SimulationEngine {
             }
         }
     }
+
+    public void printCityStatus(City city, int tickNumber) {
+        System.out.println("=== Tick " + tickNumber + " ===");
+
+        for (int row = 0; row < city.getRowCount(); row++) {
+            for (int col = 0; col < city.getColCount(); col++) {
+                Cell cell = city.getCell(row, col);
+                if (cell != null) {
+                    if (cell.isZone()) {
+                        Zone zone = (Zone) cell;
+                        System.out.print(cell.getSymbol() + "" + zone.getLevel() + " ");
+                    } else {
+                        System.out.print(cell.getSymbol() + "  ");
+                    }
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println("\n--- Current Pools ---");
+        System.out.println("Total Population : " + city.getPreviousPopulation());
+        System.out.println("Total Goods      : " + city.getPreviousGoods());
+        System.out.println("Total Lifestyle  : " + city.getPreviousLifestyle());
+        System.out.println("=====================\n");
+    }
+
+
 }
