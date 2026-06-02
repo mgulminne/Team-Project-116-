@@ -37,8 +37,6 @@ public class CellFactory {
             case  'H':
                 return new Housing(row, col);
 
-
-
               //If an unknown character is encountered in the map
              // it returns an empty cell to prevent the program from crashing
              default:
