@@ -31,6 +31,8 @@ public class SimulationEngine {
 
             city.prepareNextTick();
 
+            printCityStatus(city,tick); //Prints the city state at the end of the tick
+
         }
     }
 
