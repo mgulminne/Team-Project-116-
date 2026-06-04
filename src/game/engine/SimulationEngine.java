@@ -95,13 +95,13 @@ public class SimulationEngine {
         for(Cell provider: city.getProviders()){
 
             if (provider instanceof PowerPlant){
-                utilityBfs.runBfs(city,provider,"electricity");
+                utilityBfs.runBfs(city,provider,"ELECTRICITY");
 
             } else if (provider instanceof WaterPumpingStation) {
-                utilityBfs.runBfs(city,provider,"water");
+                utilityBfs.runBfs(city,provider,"WATER");
 
             } else if (provider instanceof InternetHub) {
-                utilityBfs.runBfs(city,provider,"internet");
+                utilityBfs.runBfs(city,provider,"INTERNET");
             }
         }
     }

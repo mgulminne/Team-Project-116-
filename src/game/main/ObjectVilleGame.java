@@ -60,7 +60,6 @@ public class ObjectVilleGame {
 
             //start the main simulation loop
             engine.startSimulation();
-            engine.printCityStatus(city,tickCount);
 
         } catch (InvalidMapException e) {
             System.out.println(e.getMessage());

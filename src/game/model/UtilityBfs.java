@@ -32,11 +32,11 @@ public class UtilityBfs {
                 Zone zone = (Zone) current;
                 int demand = 0;
 
-                if (utilityType.equals("electricity")) {
+                if (utilityType.equals("ELECTRICITY")) {
                     demand = zone.getElectricityDemand();
-                } else if (utilityType.equals("water")) {
+                } else if (utilityType.equals("WATER")) {
                     demand = zone.getWaterDemand();
-                } else if (utilityType.equals("internet")) {
+                } else if (utilityType.equals("INTERNET")) {
                     demand = zone.getInternetDemand();
                 }
 
@@ -51,11 +51,11 @@ public class UtilityBfs {
                 }
 
                 // delivering utility
-                if (utilityType.equals("electricity")) {
+                if (utilityType.equals("ELECTRICITY")) {
                     zone.receiveElectricity(given);
-                } else if (utilityType.equals("water")) {
+                } else if (utilityType.equals("WATER")) {
                     zone.receiveWater(given);
-                } else if (utilityType.equals("internet")) {
+                } else if (utilityType.equals("INTERNET")) {
                     zone.receiveInternet(given);
                 }
 
