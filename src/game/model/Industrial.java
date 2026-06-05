@@ -28,7 +28,6 @@ public class Industrial extends Zone{
 
             } else if (level == 2 && receivedPopulation > 1) {
                 level = 3;
-
             } else if (level > 1 && !hasSecurity) {
                 level = level - 1;
             }
@@ -45,23 +44,19 @@ public class Industrial extends Zone{
             output = 2 * m;
 
         } else if (level == 3) {
-            int extraPopulation;
-            if (receivedPopulation - 1 > 0) {
-                extraPopulation = receivedPopulation - 1;
-            } else {
-                extraPopulation = 0;
-            }
-            output = (2 * m) + extraPopulation;
+            output = (2 * m) + receivedPopulation;
         }
         //update demands
 
         if (output > 1) {
             electricityDemand = output;
             waterDemand = output;
+            internetDemand = 0;
 
         } else {
             electricityDemand = 1;
             waterDemand = 1;
+            internetDemand = 0;
         }
 
     }

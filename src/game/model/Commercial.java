@@ -45,29 +45,13 @@ public class Commercial extends Zone {
             output = 2 * m;
 
         } else if (level == 3) {
-            int extraPopulation;
-            int extraGoods;
-
-            if (receivedPopulation - 1 > 0) {
-                extraPopulation = receivedPopulation - 1;
+            int minimumReceived;
+            if (receivedPopulation < receivedGoods) {
+                minimumReceived = receivedPopulation;
             } else {
-                extraPopulation = 0;
+                minimumReceived = receivedGoods;
             }
-
-            if (receivedGoods - 1 > 0) {
-                extraGoods = receivedGoods - 1;
-            } else {
-                extraGoods = 0;
-            }
-
-            int minimumExtra;
-
-            if (extraPopulation < extraGoods) {
-                minimumExtra = extraPopulation;
-            } else {
-                minimumExtra = extraGoods;
-            }
-            output = (2 * m) + minimumExtra;
+            output = (2 * m) + minimumReceived;
         }
         // Update demands
 
